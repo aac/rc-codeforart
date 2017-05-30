@@ -5,12 +5,20 @@
 var frame
 var update = true
 var clearScreen = false
+var minHue, maxHue
+
+function randomHue(){
+  minHue = random(0,31)*10
+  maxHue = minHue + 50
+}
 
 function setup() {
   createCanvas(1280, 720)
   clear()
   background(51)
   frame = 0
+
+  randomHue()
 }
 
 function mouseClicked(){
@@ -20,6 +28,13 @@ function mouseClicked(){
 function keyPressed() {
   if (key === ' '){
     clearScreen = true
+  }
+}
+
+function keyTyped() {
+  if (key === 'r'){
+    randomHue()
+    frame=0
   }
 }
 
@@ -50,7 +65,7 @@ function draw() {
       var radius = random(10, 100)//random(5,(1-posScale)*250)
       var randX = width/2 + posScale * random(-width/2,width/2)
       var randY = height/2 + posScale * random(-height/2, height/2)
-      fill(random(100,150), random(10, 100), random(50, 100),1);
+      fill(random(minHue,maxHue), random(10, 100), random(50, 100),1);
       ellipse(randX, randY, radius, radius)
   }
 }
