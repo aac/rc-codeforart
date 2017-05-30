@@ -6,7 +6,7 @@ If you have git on your machine, clone this repo with:
 
 ```git clone git@github.com:aac/rc-codeforart.git```
 
-The repo contains an HTML file, `index.html`, which contains a canvas element and includes the Javascript files for p5. It also loads `sketch.js`, which contains our code for interacting with p5 and drawing things in the canvas element.
+The repo contains an HTML file, `index.html`, which contains a canvas element and includes the Javascript files for p5. It also loads `sketch.js`, which contains our code for interacting with p5 and drawing things in the canvas element. In the `empty` branch, `sketch.js` just contains an empty p5.js skeleton. The various branches have different sketches. List the branches with `git branch`.
 
 To see the output of your code, just load index.html in your web browser. (On macOS you can do that from the CLI by entering `open index.html` inside the git repo directory.)
 
