@@ -38,17 +38,19 @@ function draw() {
     clearScreen = false
     frame = 0
   }
-  //noStroke()
+  noStroke()
   ellipseMode(RADIUS)
 
   if(!update) return
+
+  colorMode(HSB, 100);
 
   var numCircles = random(5)
   for (var i = 0; i < numCircles; i++){
       var radius = random(10, 100)//random(5,(1-posScale)*250)
       var randX = width/2 + posScale * random(-width/2,width/2)
       var randY = height/2 + posScale * random(-height/2, height/2)
-      fill(50+10*random(20))
+      fill(random(100,150), random(10, 100), random(50, 100),1);
       ellipse(randX, randY, radius, radius)
   }
 }
