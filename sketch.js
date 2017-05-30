@@ -2,15 +2,53 @@
 
 */
 
+var frame
+var update = true
+var clearScreen = false
+
 function setup() {
   createCanvas(1280, 720)
   clear()
   background(51)
+  frame = 0
+}
+
+function mouseClicked(){
+  update = !update
+}
+
+function keyPressed() {
+  if (key === ' '){
+    clearScreen = true
+  }
 }
 
 function draw() {
-  //clear()
-  //background(51)
+  frame=frame+1
+
+  // this is a sigmoid-esque function to control how the circle centers
+  // move to the edges of the canvas over time
+  // values range from ~0.25 to 1. changing the constant to be larger will
+  // make it take longer to scale out
+  posScale = 1-1/(1+exp(1/100*frame-1))
+
+  if (clearScreen){
+    clear()
+    background(51)
+    clearScreen = false
+    frame = 0
+  }
   //noStroke()
-  //ellipseMode(RADIUS)
+  ellipseMode(RADIUS)
+
+  if(!update) return
+
+  var numCircles = random(5)
+  for (var i = 0; i < numCircles; i++){
+      var radius = random(10, 100)//random(5,(1-posScale)*250)
+      var randX = width/2 + posScale * random(-width/2,width/2)
+      var randY = height/2 + posScale * random(-height/2, height/2)
+      fill(50+10*random(20))
+      ellipse(randX, randY, radius, radius)
+  }
 }
