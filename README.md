@@ -14,4 +14,4 @@ p5.js has a lot of awesome functionality that I won't cover exhaustively. Check 
 
 One of the best resources for beginners is Dan Shiffman's book [*The Nature Of Code*](http://natureofcode.com/book/) (featuring RC S1'17 Evan Emolo in the credits). If you're looking for ideas, it's a great place to start. The book uses the Java based Processing programming environment, but there are [p5.js versions of the examples](https://github.com/shiffman/The-Nature-of-Code-Examples-p5.js/).
 
-Dan also hosts a YouTube channel called [The Coding Train](http://thecodingtrain.com/) where he walksthrough a wide range of visual (and other) programming concepts.
+Dan also hosts a YouTube channel called [The Coding Train](http://thecodingtrain.com/) where he walks through a wide range of visual (and other) programming concepts.
