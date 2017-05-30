@@ -4,7 +4,7 @@ This repo contains starter code for making art (or at least doing visual things)
 
 If you have git on your machine, clone this repo with:
 
-```tktktk```
+```git clone git@github.com:aac/rc-codeforart.git```
 
 The repo contains an HTML file, `index.html`, which contains a canvas element and includes the Javascript files for p5. It also loads `sketch.js`, which contains our code for interacting with p5 and drawing things in the canvas element.
 
