@@ -8,8 +8,8 @@ var clearScreen = false
 var minHue, maxHue
 
 function randomHue(){
-  minHue = random(0,31)*10
-  maxHue = minHue + 50
+  minHue = floor(random(0,31))*10
+  maxHue = minHue + 10
 }
 
 function setup() {
@@ -17,6 +17,7 @@ function setup() {
   clear()
   background(51)
   frame = 0
+  frameRate(30)
 
   randomHue()
 }
@@ -45,7 +46,7 @@ function draw() {
   // move to the edges of the canvas over time
   // values range from ~0.25 to 1. changing the constant to be larger will
   // make it take longer to scale out
-  posScale = 1-1/(1+exp(1/100*frame-1))
+  posScale = 1-1/(1+exp(1/50*frame-1))
 
   if (clearScreen){
     clear()
@@ -58,14 +59,16 @@ function draw() {
 
   if(!update) return
 
-  colorMode(HSB, 100);
+  colorMode(HSB, 360, 100, 100, 100);
 
   var numCircles = random(5)
   for (var i = 0; i < numCircles; i++){
       var radius = random(10, 100)//random(5,(1-posScale)*250)
       var randX = width/2 + posScale * random(-width/2,width/2)
       var randY = height/2 + posScale * random(-height/2, height/2)
-      fill(random(minHue,maxHue), random(10, 100), random(50, 100),1);
+      strokeWeight(radius/20)
+      stroke(minHue, 100, 60, 70)
+      fill(random(minHue,maxHue), random(30, 100), random(50, 100), 60);
       ellipse(randX, randY, radius, radius)
   }
 }
