@@ -15,7 +15,7 @@ function randomHue(){
 function setup() {
   createCanvas(1280, 720)
   clear()
-  background(51)
+  background(231)
   frame = 0
   frameRate(30)
 
@@ -50,12 +50,12 @@ function draw() {
 
   if (clearScreen){
     clear()
-    background(51)
+    background(231)
     clearScreen = false
     frame = 0
   }
   noStroke()
-  ellipseMode(RADIUS)
+  rectMode(CENTER)
 
   if(!update) return
 
@@ -65,10 +65,15 @@ function draw() {
   for (var i = 0; i < numCircles; i++){
       var radius = random(10, 100)//random(5,(1-posScale)*250)
       var randX = width/2 + posScale * random(-width/2,width/2)
-      var randY = height/2 + posScale * random(-height/2, height/2)
+      var randY = height/2 + posScale * random(-height/2,height/2)
       strokeWeight(radius/20)
       stroke(minHue, 100, 60, 70)
       fill(random(minHue,maxHue), random(30, 100), random(50, 100), 60);
-      ellipse(randX, randY, radius, radius)
+      push()
+      translate(randX, randY)
+      rotate(random(0, HALF_PI))
+      translate(-randX, -randY)
+      rect(randX, randY, radius, radius)
+      pop()
   }
 }
