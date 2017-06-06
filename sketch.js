@@ -21,7 +21,7 @@ function setup() {
 
 function draw() {
   ellipseMode(RADIUS)
-  noStroke()
+  //noStroke()
   //clear()
 
   capture.loadPixels()
@@ -37,9 +37,20 @@ function draw() {
     var pixY = floor(randY * capture.height)
     var offset = (pixY * capture.width + pixX) * 4
 
-    fill(capture.pixels[offset], capture.pixels[offset+1],
-      capture.pixels[offset+2], 50)
+    colorMode(RGB)
+    var clr = color(capture.pixels[offset], capture.pixels[offset+1],
+      capture.pixels[offset+2])
 
+    colorMode(HSL,100)
+    strokeWeight(3)
+    if ((hue(clr) < 70 || hue(clr) > 280) && lightness(clr) < 70 && saturation(clr) > 15){
+      noStroke()
+    }
+    else {
+      stroke(hue(clr), saturation(clr)*1.5, lightness(clr)*0.5, 80)
+      radius = random(5, 20)
+    }
+    fill(hue(clr), saturation(clr), lightness(clr), 50)
     ellipse(randX * width, randY*height, radius, radius)
   }
 
